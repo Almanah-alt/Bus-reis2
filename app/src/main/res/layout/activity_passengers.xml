@@ -29,11 +29,12 @@
             android:text="@string/place_label"/>
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="14dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/type_label"
-            android:textAlignment="gravity"
+            android:paddingStart="50dp"
+            android:paddingEnd="20dp"
             android:textSize="20sp" />
     </LinearLayout>
     <LinearLayout
