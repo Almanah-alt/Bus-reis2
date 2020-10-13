@@ -14,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.busfleets.trainSchedule.ApplicationDatabase
+import com.example.busfleets.trainSchedule.BussPassenger
 import com.example.busfleets.trainSchedule.Schedule
 import com.google.android.material.navigation.NavigationView
 import java.time.LocalDate
@@ -65,6 +66,27 @@ class MainActivity : AppCompatActivity() {
             ApplicationDatabase.getInstance(applicationContext)!!.getScheduleDao().insertSchedule(Schedule(fromCity = "Астана", toCity = "Алматы", departureTime = "19:20", arrivalTime = "4:36", departureDate = depDate2.toString(), arrivalDate = arrDate2.toString() ,busNum = "KZ 998 KN 03", placeNum = 46,  model = "VolVa", image = R.drawable.buss))
             ApplicationDatabase.getInstance(applicationContext)!!.getScheduleDao().insertSchedule(Schedule(fromCity = "Актау", toCity = "Атырау", departureTime = "15:30", arrivalTime = "9:40", departureDate = arrDate1.toString(), arrivalDate = arrDate3.toString(), busNum = "KZ 468 KN 02", placeNum = 48,  model = "MAZDARA", image = R.drawable.bust))
             ApplicationDatabase.getInstance(applicationContext)!!.getScheduleDao().insertSchedule(Schedule(fromCity = "Кокшетау", toCity = "Жезказган", departureTime = "18:19", arrivalTime = "7:20", departureDate = arrDate2.toString(), arrivalDate = arrDate4.toString(), busNum = "KZ 346 KN 02", placeNum = 52,  model = "Yokohama", image = R.drawable.busfo))
+            insertPassengers()
+        }
+    }
+
+    private fun insertPassengers(){
+        AsyncTask.execute{
+            ApplicationDatabase.getInstance(applicationContext)!!.getPassengerDao().insertPassenger(
+                BussPassenger(name = "Aigerim", status = "OFFLINE", placeNum = 0, placeType = "нижний", placeIndex = "A")
+            )
+            ApplicationDatabase.getInstance(applicationContext)!!.getPassengerDao().insertPassenger(
+                BussPassenger(name = "Aikul", status = "OFFLINE", placeNum = 0, placeType = "верхний", placeIndex = "B")
+            )
+            ApplicationDatabase.getInstance(applicationContext)!!.getPassengerDao().insertPassenger(
+                BussPassenger(name = "Beksultan", status = "ONLINE", placeNum = 1, placeType = "нижний", placeIndex = "A")
+            )
+            ApplicationDatabase.getInstance(applicationContext)!!.getPassengerDao().insertPassenger(
+                BussPassenger(name = "Nurzhan", status = "ONLINE", placeNum = 1, placeType = "верхний", placeIndex = "B")
+            )
+            ApplicationDatabase.getInstance(applicationContext)!!.getPassengerDao().insertPassenger(
+                BussPassenger(name = "Maulen", status = "OFFLINE", placeNum = 2, placeType = "верхний", placeIndex = "A")
+            )
 
         }
     }

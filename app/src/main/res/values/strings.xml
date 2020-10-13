@@ -120,4 +120,11 @@
     <string name="place_label">Место</string>
     <string name="type_label">Тип</string>
     <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="passenger_info_label">Информация о пассажире</string>
+    <string name="email_hint">Почта</string>
+    <string name="price_label">Цена</string>
+    <string name="update_btn_label">Изменить</string>
+    <string name="send_btn_label">Отправить чек</string>
+    <string name="label">Отменить покупку билета</string>
+    <string name="cancel_label">Покупка отменена</string>
 </resources>

@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.busfleets.trainSchedule.BussPassenger
+import com.example.busfleets.trainSchedule.Schedule
 import kotlinx.android.synthetic.main.passenger_item_layout.view.*
 
 class PassengerListAdapter(
-    private val bussPassengerList: List<BussPassenger> = ArrayList()
+    private val bussPassengerList: List<BussPassenger> = ArrayList(),
+    private val onPassengerClick:(BussPassenger) -> Unit
 ) :RecyclerView.Adapter<PassengerListAdapter.HintViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HintViewHolder {
@@ -52,6 +54,9 @@ class PassengerListAdapter(
                     view.status.text = "no type"
                     linearLayoutBg.setBackgroundResource(R.drawable.status_bg)
                 }
+            }
+            view.setOnClickListener{
+                onPassengerClick(bussPassenger)
             }
 
         }
